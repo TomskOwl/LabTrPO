@@ -1,11 +1,11 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
-}
+#include <QApplication>
 
-MainWindow::~MainWindow()
+int main(int argc, char *argv[])
 {
+QApplication app(argc, argv);
+Win win(0);
+win.show();
+return app.exec();
 }
-
