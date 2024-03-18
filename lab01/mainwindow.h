@@ -1,14 +1,31 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QtGui>
 
-class MainWindow : public QMainWindow
+class Figura
 {
-    Q_OBJECT
-
+protected:
+int x,y,halflen,dx,dy,r;
+virtual void draw(QPainter *Painter)=0;
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+Figura(int X,int Y,int Halflen):
+x(X),y(Y),halflen(Halflen){}
+void move(float Alpha,QPainter *Painter);
 };
-#endif // MAINWINDOW_H
+
+class MyLine:public Figura
+{
+protected:
+void draw(QPainter *Painter);
+public:
+MyLine(int x,int y,int halflen):Figura(x,y,halflen){}
+};
+class MyRect:public Figura
+{
+protected:
+void draw(QPainter *Painter);
+public:
+MyRect(int x,int y,int halflen):Figura(x,y,halflen){}
+};
+#endif
