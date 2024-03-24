@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QtGui>
-
+//класс фигур
 class Figura
 {
 protected:
@@ -13,7 +13,7 @@ Figura(int X,int Y,int Halflen):
 x(X),y(Y),halflen(Halflen){}
 void move(float Alpha,QPainter *Painter);
 };
-
+//класс линиии наследник от фигуры
 class MyLine:public Figura
 {
 protected:
